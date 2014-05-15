@@ -75,11 +75,14 @@
 	
 	for (i = 0; i <= cols; i++) {
 		CGContextMoveToPoint(context, (imageSize.width / cols) * i, 0);
+        if (isnan((imageSize.width / cols) * i)) continue;
 		CGContextAddLineToPoint(context, (imageSize.width / cols) * i, imageSize.height);
 	}
 	
 	for (i = 0; i <= rows; i++) {
 		CGContextMoveToPoint(context, 0, (imageSize.height / rows) * i);
+        if (isnan((imageSize.height / rows) * i)) continue;
+        
 		CGContextAddLineToPoint(context, imageSize.width, (imageSize.height / rows) * i);
 	}
 	
